@@ -1,0 +1,15 @@
+import { Router } from 'express';
+import { runAlgorithm } from '../controllers/run.controller.js';
+import { getAlgorithms, getAlgorithm } from '../controllers/algorithms.controller.js';
+import { createScenario, listScenarios, deleteScenario } from '../controllers/scenarios.controller.js';
+import { postAttempt, getProgress } from '../controllers/quiz.controller.js';
+const r = Router();
+r.get('/algorithms', getAlgorithms);
+r.get('/algorithms/:id', getAlgorithm);
+r.post('/run', runAlgorithm);
+r.post('/scenarios', createScenario);
+r.get('/scenarios', listScenarios);
+r.delete('/scenarios/:id', deleteScenario);
+r.post('/quiz/attempts', postAttempt);
+r.get('/progress', getProgress);
+export default r;
